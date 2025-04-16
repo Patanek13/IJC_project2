@@ -1,5 +1,5 @@
 # Makefile
-# Řešení IJC-DU2, Makefile 1), 2), 16.4.2025
+# Řešení IJC-DU2, příklad 1), 2), 16.4.2025
 # Autor: Patrik Lošťák, FIT
 
 # Compiler
