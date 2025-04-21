@@ -9,7 +9,7 @@
 
 typedef struct htab {
     size_t size; // Number of records in the table
-    size_t arr_size; // Number of elements next array of pointers
-    htab_item_t **arr; // Array of pointers to the items, 
+    size_t arr_size; // Number of elements in the array of pointers
+    htab_item_t **arr_of_ptr; // Array of pointers to the items, 
                        // each pointer points to the first item in the linked list
 } htab_t;
