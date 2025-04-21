@@ -13,7 +13,7 @@ LDFLAGS += -fsantize=address
 # Debug flags
 DBFLAGS = -g
 # Source files
-SRC = tail.c
+SRC = tail.c 
 HEADERS =
 # Object files
 OBJECTS = $(SRC:.c=.o)
@@ -27,10 +27,14 @@ zip:
 
 # Clean up object files and the executable
 clean:
-	rm -f $(OBJECTS) tail *.zip
+	rm -f $(OBJECTS) tail maxwordcount-cpp.o maxwordcount-cpp *.zip
+
 # Create the executable	
 tail: tail.o
 	$(CC) $(CFLAGS) $^ -o $@
+
+maxwordcount-cpp: maxwordcount-cpp.o
+	g++ -O2 $^ -o $@
 
 
 
@@ -39,5 +43,8 @@ tail: tail.o
 # Compile the source files into object files
 tail.o: tail.c
 	$(CC) $(CFLAGS) $(DBFLAGS) -c $^ -o $@
+
+maxwordcount-cpp.o: maxwordcount-cpp.cc
+	g++ -O2 -c $^ -o $@
 
 

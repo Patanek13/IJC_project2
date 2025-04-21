@@ -54,4 +54,5 @@ dkms.conf
 .vscode
 xlostap00.zip
 tail
+maxwordcount-cpp
 test
