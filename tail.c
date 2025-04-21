@@ -146,6 +146,7 @@ cbuf_t *cbuf_create(size_t capacity) {
     return buffer;
 }
 
+// Function to add a line to the circular buffer
 void cbuf_put(cbuf_t *buffer, const char *line) {
     if (buffer->count == buffer->capacity) {
         // If the buffer is full, free the oldest line
@@ -165,6 +166,7 @@ void cbuf_put(cbuf_t *buffer, const char *line) {
     buffer->count++; // Increase the count
 }
 
+// Function to get a line from the circular buffer
  const char *cbuf_get (cbuf_t *buffer, size_t idx) {
     if (idx >= buffer->count) {
         return NULL; // Index out of bounds
@@ -174,6 +176,7 @@ void cbuf_put(cbuf_t *buffer, const char *line) {
     return buffer->lines[actual_idx];
  }
 
+ // Function to read a line from the file and handle line overflow
  int read_line(FILE *file, char *buffer, size_t buffer_size) {
     if (!fgets(buffer, buffer_size, file)) {
         return false; // Error or EOF
