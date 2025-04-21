@@ -1,4 +1,4 @@
-// htab_hash_function.h
+// htab_hash_function.c
 // Řešení IJC-DU2, příklad 2), 21.4.2025
 // Autor: Patrik Lošťák, FIT
 // Přeloženo: gcc 13.3.0
