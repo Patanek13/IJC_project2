@@ -22,7 +22,7 @@ OBJECTS = $(SRC:.c=.o)
 
 all: tail
 # Create a zip file with the source code
-zip: clean
+zip: 
 	zip xlostap00.zip *.c *.h Makefile
 
 # Clean up object files and the executable
