@@ -1,3 +1,7 @@
+// Řešení IJC-DU2, příklad 2), 21.4.2025
+// Autor: Patrik Lošťák, FIT
+// Přeloženo: gcc 13.3.0
+
 // htab.h -- rozhraní knihovny htab (řešení IJC-DU2)
 // Licence: žádná (Public domain)
 
