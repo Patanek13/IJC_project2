@@ -7,7 +7,6 @@
 #include "htab_item_t.h"
 #include "htab_t.h"
 
-#include <stdlib.h>
 
 void htab_clear(htab_t *t) {
     // Iterate through each bucket in the hash table
