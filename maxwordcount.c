@@ -5,16 +5,29 @@
 
 #include "htab.h"
 #include "io.h"
+#include "htab_t.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #define MAX_WORD_LENGTH 256 // Maximum length of a word + 1 for null terminator
-#define HASH_TABLE_SIZE 12000 // Size of the hash table
+#define HASH_TABLE_SIZE 12007 // Size of the hash table
 
-// Function to print the word and its count
+static htab_value_t max_count = 0; // Global variable to store the maximum count
+
+// Fucntion to find the maximum count of words
+void find_max_count(htab_pair_t *data) {
+    if (data->value > max_count) {
+        max_count = data->value; // Update the maximum count
+    }
+}
+
+// Function to print the word and its count if it matches the maximum count
+// This function is called for each item in the hash table
 void print_word_count(htab_pair_t *data) {
-    printf("%s\t%u\n", data->key, data->value);
+    if (data->value == max_count && max_count > 0) {
+        printf("%s\t%u\n", data->key, data->value); 
+    }
 }
 
 int main() {
@@ -34,8 +47,8 @@ int main() {
         // Increment the count for the word
         htab_lookup_add(htab, word)->value++;
     }
-    // Print the words and their counts
-    htab_for_each(htab, &print_word_count);
+    htab_for_each(htab, &find_max_count); // Find the maximum count
+    htab_for_each(htab, &print_word_count); // Print the words with the maximum count
 
     htab_free(htab); // Free the hash table
 }
