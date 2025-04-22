@@ -19,12 +19,18 @@ SRC = $(wildcard htab*.c) # List all source files that start with htab
 OBJECTS = $(patsubst %.c, %.o, $(SRC)) # Replace .c with .o in the source files
 LIBS =-L. -lhtab
 
-.PHONY: all clean zip
+.PHONY: all clean zip check
 
 all: tail maxwordcount maxwordcount-dynamic
+
+check: all
+	./tail -n 10 check.txt
+	export LD_LIBRARY_PATH="." && ./maxwordcount-dynamic < check.txt
+	./maxwordcount < check.txt
+
 # Create a zip file with the source code
 zip: 
-	zip xlostap00.zip *.c *.h Makefile
+	zip xlostap00.zip *.c *.h Makefile check.txt maxwordcount-cpp.cc
 
 # Clean up object files and the executable
 clean:
