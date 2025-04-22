@@ -7,7 +7,7 @@
 
 int read_word(unsigned max, char s[max], FILE *f) {
   int character;
-  int idx = 0;
+  unsigned int idx = 0;
 
   if (max == 0) {
     return 0; // Return 0 if max length is 0
@@ -34,5 +34,5 @@ int read_word(unsigned max, char s[max], FILE *f) {
 
   s[idx] = '\0'; // Null-terminate the string
 
-  return idx; // Return the length of the word read
+  return (int)idx; // Return the length of the word read
 }
