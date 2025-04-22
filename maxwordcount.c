@@ -11,7 +11,7 @@
 #include <stdlib.h>
 
 #define MAX_WORD_LENGTH 256 // Maximum length of a word + 1 for null terminator
-#define HASH_TABLE_SIZE 12007 // Size of the hash table
+#define HASH_TABLE_SIZE 12007 // Size of the hash table (program takes approx 7 seconds to run with seq 1000000)
 
 static htab_value_t max_count = 0; // Global variable to store the maximum count
 
