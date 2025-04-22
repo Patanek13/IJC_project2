@@ -9,7 +9,7 @@
 
 typedef struct htab_item {
     htab_pair_t pair; // Key-value pair
-    htab_item_t *next; // Pointer to the next item in the linked list
+    struct htab_item *next; // Pointer to the next item in the linked list
 } htab_item_t;
 
 #endif // HTAB_ITEM_T
